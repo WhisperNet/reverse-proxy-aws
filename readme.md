@@ -1,6 +1,6 @@
 # AWS EC2 Nginx Reverse Proxy Project
 
-This project demonstrates setting up an **Nginx reverse proxy** on AWS EC2 to serve multiple Node.js applications through different subdomains.
+This project demonstrates setting up an **Nginx reverse proxy** and "HAPROXY on AWS EC2 to serve multiple Node.js applications through different subdomains.
 
 ## 🏗️ Architecture Overview
 
@@ -49,7 +49,6 @@ This project demonstrates setting up an **Nginx reverse proxy** on AWS EC2 to se
 
 - Allow HTTP (Port 80)
 - Allow SSH (Port 22)
-- Allow custom ports 3000 and 3001 (for testing)
 
 ### Application Deployment
 
@@ -69,7 +68,7 @@ This project demonstrates setting up an **Nginx reverse proxy** on AWS EC2 to se
    npm install
    ```
 
-### Nginx Configuration
+### Proxy Configuration
 
 **Add Nginx Configuration**
 
