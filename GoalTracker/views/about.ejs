@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-bullseye"></i>
+          <span>Goal Tracker</span>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="/" class="nav-link">
+              <i class="fas fa-home"></i>
+              Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/add-goal" class="nav-link">
+              <i class="fas fa-plus"></i>
+              Add Goal
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/about" class="nav-link">
+              <i class="fas fa-info-circle"></i>
+              About
+            </a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div class="container">
+          <h1><i class="fas fa-info-circle"></i> About Goal Tracker</h1>
+          <p>Learn more about our mission and features</p>
+        </div>
+      </div>
+
+      <section class="about-section">
+        <div class="container">
+          <div class="about-content">
+            <div class="about-card">
+              <div class="card-icon">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <h3>Our Mission</h3>
+              <p>
+                We believe that achieving goals should be simple, visual, and
+                motivating. Our goal tracker helps you stay focused on what
+                matters most.
+              </p>
+            </div>
+
+            <div class="about-card">
+              <div class="card-icon">
+                <i class="fas fa-features"></i>
+              </div>
+              <h3>Features</h3>
+              <ul>
+                <li>
+                  <i class="fas fa-check"></i> Beautiful, intuitive interface
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Priority-based goal organization
+                </li>
+                <li><i class="fas fa-check"></i> Progress tracking</li>
+                <li><i class="fas fa-check"></i> Category management</li>
+                <li><i class="fas fa-check"></i> Responsive design</li>
+              </ul>
+            </div>
+
+            <div class="about-card">
+              <div class="card-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3>Technology</h3>
+              <p>
+                Built with modern web technologies including Node.js,
+                Express.js, and EJS templating. Designed with performance and
+                user experience in mind.
+              </p>
+            </div>
+          </div>
+
+          <div class="stats-section">
+            <h2>Why Choose Goal Tracker?</h2>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">User Satisfaction</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">10k+</div>
+                <div class="stat-label">Goals Achieved</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">5k+</div>
+                <div class="stat-label">Active Users</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Goal Tracker. Built with Express.js</p>
+      </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

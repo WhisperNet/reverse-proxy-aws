@@ -1,0 +1,28 @@
+{
+  "name": "online-quiz",
+  "version": "1.0.0",
+  "description": "A beautiful and modern online quiz web application built with Express.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "quiz",
+    "online-quiz",
+    "express",
+    "web-app",
+    "education"
+  ],
+  "author": "whispernet",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "body-parser": "^1.20.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

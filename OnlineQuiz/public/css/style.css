@@ -1,0 +1,369 @@
+/* Custom CSS for QuizMaster */
+
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --success-color: #198754;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --info-color: #0dcaf0;
+  --dark-color: #212529;
+  --light-color: #f8f9fa;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 80px 0;
+  margin-bottom: 0;
+}
+
+.hero-section h1 {
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Stats Row */
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.stat-item {
+  text-align: center;
+  margin: 20px;
+  min-width: 150px;
+}
+
+.stat-item i {
+  font-size: 2.5rem;
+  color: #ffc107;
+  margin-bottom: 10px;
+}
+
+.stat-item h3 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+  color: white;
+}
+
+.stat-item p {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Quiz Cards */
+.quiz-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.quiz-card .card-header {
+  border-bottom: none;
+  font-weight: 600;
+}
+
+.quiz-info {
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+/* Question Cards */
+.question-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.question-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.question-number {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.question-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.options .form-check {
+  padding: 12px 15px;
+  margin: 8px 0;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.options .form-check:hover {
+  background-color: #f8f9fa;
+  border-color: var(--primary-color);
+}
+
+.options .form-check-input:checked + .form-check-label {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.option-letter {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-right: 8px;
+}
+
+/* Score Card */
+.score-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.score-item h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.score-item p {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Result Cards */
+.result-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.result-card .card-header {
+  font-weight: 600;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Step Items (About Page) */
+.step-item {
+  padding: 20px;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 auto 15px auto;
+}
+
+/* 404 Error Page */
+.error-404 {
+  padding: 60px 20px;
+}
+
+.error-404 i {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Buttons */
+.btn {
+  border-radius: 10px;
+  font-weight: 500;
+  padding: 12px 30px;
+  transition: all 0.3s ease;
+}
+
+.btn-lg {
+  padding: 15px 40px;
+  font-size: 1.1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+  border: none;
+  box-shadow: 0 4px 15px rgba(86, 171, 47, 0.4);
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(86, 171, 47, 0.6);
+}
+
+/* Navbar */
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.navbar-brand i {
+  color: #ffc107;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 0;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .stats-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-item {
+    margin: 15px 0;
+  }
+
+  .score-item h3 {
+    font-size: 2rem;
+  }
+
+  .btn-lg {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .question-text {
+    font-size: 1rem;
+  }
+
+  .options .form-check {
+    padding: 10px 12px;
+  }
+}
+
+/* Loading Animation */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Custom Animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Quiz Timer (if needed for future enhancement) */
+.quiz-timer {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Progress Bar (if needed for future enhancement) */
+.quiz-progress {
+  height: 6px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* Dark mode styles (for future enhancement) */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  .card {
+    background-color: #2d2d2d;
+    border-color: #404040;
+  }
+
+  .question-card .card-header {
+    background-color: #404040;
+    border-color: #505050;
+  }
+}
