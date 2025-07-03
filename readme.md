@@ -71,49 +71,90 @@ This project demonstrates setting up an **Nginx reverse proxy** on AWS EC2 to se
 
 ### Nginx Configuration
 
-1. **Create Nginx Configuration**
+**Add Nginx Configuration**
 
-   ```bash
-   sudo nano /etc/nginx/sites-available/reverse-proxy
-   ```
+```nginx
+# /etc/nginx/nginx.conf
+server {
+    listen 80;
+    server_name goaltracker.ridowansikder.me;
 
-2. **Add Configuration**
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
 
-   ```nginx
-   server {
-       listen 80;
-       server_name goaltracker.ridowansikder.me;
+server {
+    listen 80;
+    server_name onlinequiz.ridowansikder.me;
 
-       location / {
-           proxy_pass http://localhost:3000;
-           proxy_http_version 1.1;
-           proxy_set_header Upgrade $http_upgrade;
-           proxy_set_header Connection 'upgrade';
-           proxy_set_header Host $host;
-           proxy_set_header X-Real-IP $remote_addr;
-           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-           proxy_set_header X-Forwarded-Proto $scheme;
-           proxy_cache_bypass $http_upgrade;
-       }
-   }
+    location / {
+        proxy_pass http://localhost:3001;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
 
-   server {
-       listen 80;
-       server_name onlinequiz.ridowansikder.me;
+**Add HAPROXY Configuration**
 
-       location / {
-           proxy_pass http://localhost:3001;
-           proxy_http_version 1.1;
-           proxy_set_header Upgrade $http_upgrade;
-           proxy_set_header Connection 'upgrade';
-           proxy_set_header Host $host;
-           proxy_set_header X-Real-IP $remote_addr;
-           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-           proxy_set_header X-Forwarded-Proto $scheme;
-           proxy_cache_bypass $http_upgrade;
-       }
-   }
-   ```
+```TOML
+# /etc/haproxy/haproxy.cfg
+
+# Global settings (minimal)
+global
+    daemon
+
+# Default settings (minimal)
+defaults
+    mode http
+    # Required for proper HTTP/1.1 and WebSockets
+    option httplog
+    option http-server-close
+    option forwardfor
+    timeout client 10s
+    timeout server 10s
+    timeout connect 5s
+    timeout tunnel 1h # for WebSockets
+
+# Frontend to handle incoming HTTP requests
+frontend http_in
+    bind *:80
+    mode http
+
+    # ACLs to identify which domain is being requested
+    acl is_goaltracker hdr(host) -i goaltracker.ridowansikder.me
+    acl is_onlinequiz hdr(host) -i onlinequiz.ridowansikder.me
+
+    # Use the appropriate backend based on the ACL match
+    use_backend goaltracker_backend if is_goaltracker
+    use_backend onlinequiz_backend if is_onlinequiz
+
+
+# Backend for goaltracker.ridowansikder.me
+backend goaltracker_backend
+    mode http
+    server goaltracker_app 127.0.0.1:3000
+
+# Backend for onlinequiz.ridowansikder.me
+backend onlinequiz_backend
+    mode http
+    server onlinequiz_app 127.0.0.1:3001
+```
 
 **Server IP**: 65.0.87.188  
 **Live URLs**:
